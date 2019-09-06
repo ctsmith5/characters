@@ -17,6 +17,15 @@
 		AF15866F2321C03D00E665D6 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF15866E2321C03D00E665D6 /* CharacterViewController.swift */; };
 		AF1586712321C0C600E665D6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1586702321C0C600E665D6 /* ViewModel.swift */; };
 		AF1586732321C13700E665D6 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1586722321C13700E665D6 /* UIImageExtension.swift */; };
+		AF1586762321E8B500E665D6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1586702321C0C600E665D6 /* ViewModel.swift */; };
+		AF1586772321E8B500E665D6 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF15866E2321C03D00E665D6 /* CharacterViewController.swift */; };
+		AF1586782321E8B500E665D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1586472321BF5E00E665D6 /* AppDelegate.swift */; };
+		AF1586792321E8B500E665D6 /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF15866C2321C01800E665D6 /* CharacterTableViewController.swift */; };
+		AF15867A2321E8B500E665D6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF15866A2321BFF300E665D6 /* Models.swift */; };
+		AF15867B2321E8B500E665D6 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1586722321C13700E665D6 /* UIImageExtension.swift */; };
+		AF15867E2321E8B500E665D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF1586502321BF6200E665D6 /* LaunchScreen.storyboard */; };
+		AF15867F2321E8B500E665D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF15864E2321BF6200E665D6 /* Assets.xcassets */; };
+		AF1586802321E8B500E665D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF15864B2321BF5E00E665D6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,8 @@
 		AF15866E2321C03D00E665D6 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		AF1586702321C0C600E665D6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AF1586722321C13700E665D6 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		AF1586842321E8B500E665D6 /* TheSimpsons copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheSimpsons copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF1586852321E8B500E665D6 /* TheSimpsons copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TheSimpsons copy-Info.plist"; path = "/Users/colinsmith/Developer/TheSimpsons/TheSimpsons copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +72,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AF15867C2321E8B500E665D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +88,7 @@
 				AF1586462321BF5E00E665D6 /* TheSimpsons */,
 				AF15865B2321BF6200E665D6 /* TheSimpsonsTests */,
 				AF1586452321BF5E00E665D6 /* Products */,
+				AF1586852321E8B500E665D6 /* TheSimpsons copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +97,7 @@
 			children = (
 				AF1586442321BF5E00E665D6 /* TheSimpsons.app */,
 				AF1586582321BF6200E665D6 /* TheSimpsonsTests.xctest */,
+				AF1586842321E8B500E665D6 /* TheSimpsons copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +190,23 @@
 			productReference = AF1586582321BF6200E665D6 /* TheSimpsonsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AF1586742321E8B500E665D6 /* TheSimpsons copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF1586812321E8B500E665D6 /* Build configuration list for PBXNativeTarget "TheSimpsons copy" */;
+			buildPhases = (
+				AF1586752321E8B500E665D6 /* Sources */,
+				AF15867C2321E8B500E665D6 /* Frameworks */,
+				AF15867D2321E8B500E665D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TheSimpsons copy";
+			productName = TheSimpsons;
+			productReference = AF1586842321E8B500E665D6 /* TheSimpsons copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,6 +241,7 @@
 			targets = (
 				AF1586432321BF5E00E665D6 /* TheSimpsons */,
 				AF1586572321BF6200E665D6 /* TheSimpsonsTests */,
+				AF1586742321E8B500E665D6 /* TheSimpsons copy */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +261,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF15867D2321E8B500E665D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF15867E2321E8B500E665D6 /* LaunchScreen.storyboard in Resources */,
+				AF15867F2321E8B500E665D6 /* Assets.xcassets in Resources */,
+				AF1586802321E8B500E665D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +295,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF15865D2321BF6200E665D6 /* TheSimpsonsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF1586752321E8B500E665D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF1586762321E8B500E665D6 /* ViewModel.swift in Sources */,
+				AF1586772321E8B500E665D6 /* CharacterViewController.swift in Sources */,
+				AF1586782321E8B500E665D6 /* AppDelegate.swift in Sources */,
+				AF1586792321E8B500E665D6 /* CharacterTableViewController.swift in Sources */,
+				AF15867A2321E8B500E665D6 /* Models.swift in Sources */,
+				AF15867B2321E8B500E665D6 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +535,42 @@
 			};
 			name = Release;
 		};
+		AF1586822321E8B500E665D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = TheSimpsonsIcons;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2779EQ3QB6;
+				INFOPLIST_FILE = "TheSimpsons copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.colinsmith.TheSimpsons;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF1586832321E8B500E665D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = TheSimpsonsIcons;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2779EQ3QB6;
+				INFOPLIST_FILE = "TheSimpsons copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.colinsmith.TheSimpsons;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -500,6 +597,15 @@
 			buildConfigurations = (
 				AF1586652321BF6200E665D6 /* Debug */,
 				AF1586662321BF6200E665D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF1586812321E8B500E665D6 /* Build configuration list for PBXNativeTarget "TheSimpsons copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF1586822321E8B500E665D6 /* Debug */,
+				AF1586832321E8B500E665D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
