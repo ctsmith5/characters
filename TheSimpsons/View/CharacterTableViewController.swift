@@ -18,12 +18,20 @@ class CharacterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // IF Bundle is Simpsons
+        
         ViewModel.shared.fetchSimpsons { (simpsons) in
             self.characters = simpsons
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+        
+        // If Bundle is Wire
+        
+        
+        
+        
     }
 
     // MARK: - Table view data source

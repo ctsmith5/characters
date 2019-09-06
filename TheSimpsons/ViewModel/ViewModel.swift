@@ -41,7 +41,28 @@ class ViewModel {
             }.resume()
     }
     
-    func fetchWire(){
+    func fetchWire(completion: @escaping ([CSCharacter]) -> Void){
+        guard let url = wireURL else {return}
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.httpBody = nil
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print(" \(error.localizedDescription) \(error) in function \(#function) ")
+                completion([])
+                return
+            }
+            guard let data = data else {return}
+            do{
+                let data = try JSONDecoder().decode(TopLevel.self, from: data)
+                let characters = data.relatedTopics
+                completion(characters)
+            }catch{
+                print("could not load from dictionary \(error.localizedDescription)")
+                completion([])
+            }
+            }.resume()
         
     }
     
