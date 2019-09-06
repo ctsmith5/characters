@@ -31,7 +31,10 @@ class CharacterViewController: UIViewController {
     func setupUI () {
         guard let character = character else {return}
         titleLabel.text = character.name
-        descriptionLabel.text = character.description
+        
+        let description = character.description.split(separator: "-", maxSplits: 1, omittingEmptySubsequences: false)
+        let second = String(description[1])
+        descriptionLabel.text = second
         
         //fetch character image
         ViewModel.shared.fetchCharacterImage(character: character) { (image) in

@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="We8-be-RUb">
                                 <rect key="frame" x="41.5" y="136" width="331" height="678"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-so-9XU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-so-9XU">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
@@ -29,7 +29,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt4-LP-4nA">
                                         <rect key="frame" x="0.0" y="60" width="331" height="294"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="274" y="46"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Characters-->
         <scene sceneID="aWG-Gb-jmY">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="2XL-Qr-n1F" customClass="CharacterTableViewController" customModule="TheSimpsons" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                             <outlet property="delegate" destination="2XL-Qr-n1F" id="1pI-X0-sRG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="4A9-wu-GRj"/>
+                    <navigationItem key="navigationItem" title="Characters" id="4A9-wu-GRj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEF-2V-ZiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

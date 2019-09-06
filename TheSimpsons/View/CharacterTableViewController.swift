@@ -10,7 +10,8 @@ import UIKit
 
 class CharacterTableViewController: UITableViewController {
     
-    
+    fileprivate var collapseDetailViewController = true
+
     var characters: [CSCharacter] = []
     
     weak var delegate: CharacterSelectionDelegate?
@@ -18,24 +19,35 @@ class CharacterTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        splitViewController?.delegate = self
         // IF Bundle is Simpsons
-        
+        #if WIRE
+        wire()
+        #else
+        // If Bundle is Wire
+        simpsons()
+        #endif
+    }
+
+    func simpsons(){
         ViewModel.shared.fetchSimpsons { (simpsons) in
             self.characters = simpsons
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
-        
-        // If Bundle is Wire
-        
-        
-        
-        
     }
-
+    
+    func wire() {
+        ViewModel.shared.fetchWire { (wire) in
+            self.characters = wire
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     // MARK: - Table view data source
-
+    
  
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,15 +107,21 @@ class CharacterTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        collapseDetailViewController = false
     }
-    */
+ 
     
     
+}
+
+
+extension CharacterTableViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return collapseDetailViewController
+    }
 }
