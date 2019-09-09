@@ -99,3 +99,17 @@ enum CodingKeys: String, CodingKey {
 protocol CharacterSelectionDelegate: class {
     func characterSelected(_ newCharacter: CSCharacter)
 }
+
+
+extension CSCharacter : SearchableCharacter {
+    func titleMatches(searchTerm: String) -> Bool {
+        return name.localizedCaseInsensitiveContains(searchTerm)
+    }
+    
+    
+}
+
+
+protocol SearchableCharacter {
+    func titleMatches(searchTerm: String) -> Bool
+}

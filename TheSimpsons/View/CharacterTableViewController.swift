@@ -15,11 +15,22 @@ class CharacterTableViewController: UITableViewController {
     var characters: [CSCharacter] = []
     
     weak var delegate: CharacterSelectionDelegate?
-
+    var isSearching: Bool = false
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var resultsArray: [SearchableCharacter] = []
+    
+    var dataSource: [SearchableCharacter] {
+        return isSearching ? resultsArray : self.characters
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         splitViewController?.delegate = self
+        searchBar.delegate = self
+        let searchBarStyle = searchBar.value(forKey: "searchField") as? UITextField
+        searchBarStyle?.clearButtonMode = .never
         // IF Bundle is Simpsons
         #if WIRE
         wire()
@@ -56,21 +67,21 @@ class CharacterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.characters.count
+        return dataSource.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath)
-
-        cell.textLabel?.text = self.characters[indexPath.row].name
+        let character = dataSource[indexPath.row] as? CSCharacter
+        cell.textLabel?.text = character?.name
 
         return cell
     }
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCharacter = characters[indexPath.row]
-        delegate?.characterSelected(selectedCharacter)
+        let selectedCharacter = dataSource[indexPath.row]
+        delegate?.characterSelected(selectedCharacter as! CSCharacter)
         if let detailViewController = delegate as? CharacterViewController {
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
         }
@@ -115,11 +126,12 @@ class CharacterTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         collapseDetailViewController = false
     }
  
-    
+    */
     
 }
 
@@ -127,5 +139,36 @@ class CharacterTableViewController: UITableViewController {
 extension CharacterTableViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return collapseDetailViewController
+    }
+}
+
+extension CharacterTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            resultsArray = self.characters
+            tableView.reloadData()
+            searchBar.text = ""
+            searchBar.resignFirstResponder()
+        }
+        resultsArray = self.characters.filter {
+            $0.titleMatches(searchTerm: searchText)
+        }
+        tableView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        resultsArray = self.characters
+        tableView.reloadData()
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearching = true
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearching = false
+        
     }
 }
