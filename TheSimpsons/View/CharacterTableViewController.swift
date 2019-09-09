@@ -33,6 +33,8 @@ class CharacterTableViewController: UITableViewController {
         ViewModel.shared.fetchSimpsons { (simpsons) in
             self.characters = simpsons
             DispatchQueue.main.async {
+                guard let first = self.characters.first else {return}
+                self.delegate?.characterSelected(first)
                 self.tableView.reloadData()
             }
         }
@@ -42,6 +44,8 @@ class CharacterTableViewController: UITableViewController {
         ViewModel.shared.fetchWire { (wire) in
             self.characters = wire
             DispatchQueue.main.async {
+                guard let first = self.characters.first else {return}
+                self.delegate?.characterSelected(first)
                 self.tableView.reloadData()
             }
         }
