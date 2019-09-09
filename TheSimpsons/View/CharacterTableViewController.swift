@@ -145,12 +145,7 @@ extension CharacterTableViewController: UISplitViewControllerDelegate {
 extension CharacterTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == ""{
-            resultsArray = self.characters
-            tableView.reloadData()
-            searchBar.text = ""
-            searchBar.resignFirstResponder()
-        }
+        
         resultsArray = self.characters.filter {
             $0.titleMatches(searchTerm: searchText)
         }
